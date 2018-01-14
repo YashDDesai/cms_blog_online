@@ -166,7 +166,7 @@ $has_admin = $init_row['role'];
                                 <p>Written by: <span><?php echo ucfirst($author);?></span></p>
                             </div>
                             <div class="col-md-2 profile-picture">
-                                <img src="admin/img/<?php echo $author_image;?>" alt="Profile Picture" class="img-circle">
+                                <img src="img/<?php echo $author_image;?>" alt="Profile Picture" class="img-circle">
 
                             </div>
                         </div>
@@ -190,10 +190,24 @@ $has_admin = $init_row['role'];
 
                     <nav id="pagination">
                       <ul class="pagination">
+
                         <?php
+                        $pr_p=$page_id-1;
+                        $nx_p=$page_id+1;
+
+                        if($pr_p>0){
+                        echo "<li><a href='index.php?page=".$pr_p."&".(isset($cat_name)?"cat=$cat_id":" ")."'>Previous</a></li>";
+                    }
+                    else{echo "<li class='disabled'><a href='index.php?page=".$pr_p."&".(isset($cat_name)?"cat=$cat_id":" ")."'>Previous</a></li>";}
+
+                        //use $total_pages to print all pages
                           for($i = 1; $i <= $total_pages; $i++){
                               echo "<li class='".($page_id == $i ? 'active': ' ')."'><a href='index.php?page=".$i."&".(isset($cat_name)?"cat=$cat_id":" ")."'>$i</a></li>";
                           }
+
+                          if($nx_p<=$total_pages){
+                           echo "<li><a href='index.php?page=".$nx_p."&".(isset($cat_name)?"cat=$cat_id":" ")."'>Next</a></li>";
+                       }else{echo "<li class='disabled'><a href='index.php?page=".$nx_p."&".(isset($cat_name)?"cat=$cat_id":" ")."'>Next</a></li>";}
                           ?>
                       </ul>
                     </nav>
