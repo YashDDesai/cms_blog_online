@@ -12,6 +12,6 @@
         $logo=$row['logo'];
         $banner=$row['banner'];
 
-        echo $blog_title;
+        //echo $blog_title;
     }
  ?>
