@@ -9,6 +9,7 @@
 
         $blog_title = $row['blog_title'];
         $blog_company = $row['company'];
+        $blog_tagline = $row['tagline'];
         $logo=$row['logo'];
         $banner=$row['banner'];
 

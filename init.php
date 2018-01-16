@@ -37,6 +37,7 @@
 
                 <input type="text" id="blog-title" name="blog-title" class="form-control" placeholder="Blog Title" required autofocus><br>
                 <input type="text" id="blog-company" name="blog-company" class="form-control" placeholder="Company / Organization" required autofocus><br>
+                <input type="text" id="blog-tag" name="blog-tag" class="form-control" placeholder="Tagline" required autofocus><br>
 
                 <hr>
 
@@ -65,6 +66,7 @@ if((isset($_POST['start'])))
     $id=1;
     $blog_title=$_POST['blog-title'];
     $blog_company=$_POST['blog-company'];
+    $blog_tag=$_POST['blog-tag'];
     $u_admin = $_POST['admin-username'];
     $u_pass = mysqli_real_escape_string($con,$_POST['admin-pass']);
     $logo = $_FILES['fav-img']['name'];
@@ -79,7 +81,7 @@ if((isset($_POST['start'])))
     $password = crypt($u_pass, $salt);
 
     $start_query="INSERT INTO `users` (username,password,role) VALUES ('$u_admin','$password','admin')";
-    $setting_query="INSERT INTO `settings` (id,blog_title,company,logo,banner) VALUES ($id,'$blog_title','$blog_company','$logo','$banner') ON DUPLICATE KEY UPDATE blog_title='$blog_title', company='$blog_company',logo='$logo',banner='$banner'";
+    $setting_query="INSERT INTO `settings` (id,blog_title,company,tagline,logo,banner) VALUES ($id,'$blog_title','$blog_company','$blog_tag','$logo','$banner') ON DUPLICATE KEY UPDATE blog_title='$blog_title', company='$blog_company',tagline='$blog_tag',logo='$logo',banner='$banner'";
     if(mysqli_query($con,$start_query)&&mysqli_query($con,$setting_query))
     {
         $msg = "Admin Account Has Been Created.";

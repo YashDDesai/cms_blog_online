@@ -1,5 +1,5 @@
 <?php require_once('inc/top.php');?>
-<?php 
+<?php
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
@@ -23,7 +23,7 @@ if(isset($_GET['del'])){
         }
         else{
             $error = "Post has not been deleted";
-        } 
+        }
     }
     else{
         header('location: index.php');
@@ -31,11 +31,11 @@ if(isset($_GET['del'])){
 }
 
 if(isset($_POST['checkboxes'])){
-    
+
     foreach($_POST['checkboxes'] as $user_id){
-        
+
         $bulk_option = $_POST['bulk-options'];
-        
+
         if($bulk_option == 'delete'){
             $bulk_del_query = "DELETE FROM `posts` WHERE `posts`.`id` = $user_id";
             mysqli_query($con, $bulk_del_query);
@@ -48,9 +48,9 @@ if(isset($_POST['checkboxes'])){
             $bulk_admin_query = "UPDATE `posts` SET `status` = 'draft' WHERE `posts`.`id` = $user_id";
             mysqli_query($con, $bulk_admin_query);
         }
-        
+
     }
-    
+
 }
 ?>
   </head>
@@ -78,7 +78,7 @@ if(isset($_POST['checkboxes'])){
                         $query = "SELECT * FROM posts WHERE author = '$session_username' ORDER BY id DESC";
                         //$query = "SELECT * FROM posts ORDER BY id DESC";
                         $run = mysqli_query($con, $query);
-                        
+
                     }
                     if(mysqli_num_rows($run) > 0){
                     ?>
