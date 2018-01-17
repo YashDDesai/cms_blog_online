@@ -3,16 +3,15 @@
   <body>
 <?php require_once('inc/header.php');
     require_once('inc/setting.php');?>
-      
-   
+
 <?php
 if(isset($_GET['post_id'])){
     $post_id = $_GET['post_id'];
-    
+
     $views_query = "UPDATE `posts` SET `views` = views + 1 WHERE `posts`.`id` = $post_id";
     mysqli_query($con, $views_query);
 
-    
+
     $query = "SELECT * FROM posts WHERE status = 'publish' and id = $post_id";
     $run = mysqli_query($con, $query);
     if(mysqli_num_rows($run) > 0){
@@ -32,9 +31,9 @@ if(isset($_GET['post_id'])){
     else{
         header('Location: index.php');
     }
-}      
+}
 ?>
-    
+
     <div class="jumbotron">
         <div class="container">
             <div id="details" class="animated fadeInLeft">
@@ -44,7 +43,7 @@ if(isset($_GET['post_id'])){
         </div>
         <img src="img/top-image.jpg" alt="Top Image">
     </div>
-    
+
     <section>
         <div class="container">
             <div class="row">
@@ -61,9 +60,9 @@ if(isset($_GET['post_id'])){
                                 <p>Written by: <span><?php echo ucfirst($author);?></span></p>
                             </div>
                             <div class="col-md-2 profile-picture">
-                               
+
                                 <img src="admin/img/<?php echo $author_image;?>" alt="Profile PictureTL" class="img-circle">
-                               
+
                                 <!--<img src="/admin/img/logan.jpg" alt="Profile Picture" class="img-circle">-->
                             </div>
                         </div>
@@ -71,13 +70,13 @@ if(isset($_GET['post_id'])){
                         <div class="desc">
                             <?php echo $post_data;?>
                         </div>
-                        
+
                         <div class="bottom">
                             <span class="first"><i class="fa fa-folder"></i><a href="<?php echo "'index.php?cat=";echo $c_id."'";?>"> <?php echo ucfirst($categories);?></a></span>|
                             <span class="sec"><i class="fa fa-comment"></i><a href="#comment"> Comment</a></span>
                         </div>
                     </div>
-                    
+
                     <div class="related-posts">
                        <h3>Related Posts</h3><hr>
                         <div class="row">
@@ -98,7 +97,7 @@ if(isset($_GET['post_id'])){
                             <?php }?>
                         </div>
                     </div>
-                    
+
                     <div class="author">
                         <div class="row">
                             <div class="col-sm-3">
@@ -112,7 +111,7 @@ if(isset($_GET['post_id'])){
                                 if(mysqli_num_rows($bio_run) > 0){
                                     $bio_row = mysqli_fetch_array($bio_run);
                                     $author_details = $bio_row['details'];
-                                
+
                                 ?>
                                 <p><?php echo $author_details;?></p>
                                 <?php }?>
@@ -147,7 +146,7 @@ if(isset($_GET['post_id'])){
                         <?php }?>
                     </div>
                     <?php }
-                    
+
                     if(isset($_POST['submit'])){
                         $cs_name = $_POST['name'];
                         $cs_email = $_POST['email'];
@@ -155,7 +154,7 @@ if(isset($_GET['post_id'])){
                         $cs_comment = $_POST['comment'];
                         $cs_date = time();
                         if(empty($cs_name) or empty($cs_email) or empty($cs_comment)){
-                          $error_msg = "All (*) feilds are Required";  
+                          $error_msg = "All (*) feilds are Required";
                         }
                         else{
                             $cs_query = "INSERT INTO `comments` (`id`, `date`, `name`, `username`, `post_id`, `email`, `website`, `image`, `comment`, `status`) VALUES (NULL, '$cs_date', '$cs_name', 'user', '$post_id', '$cs_email', '$cs_website', 'unknown-picture.png', '$cs_comment', 'pending')";
@@ -181,22 +180,22 @@ if(isset($_GET['post_id'])){
                                         <label for="full-name">Full Name:*</label>
                                         <input type="text" value="<?php if(isset($cs_name)){echo $cs_name;}?>" name="name" id="full-name" class="form-control" placeholder="Full Name">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="email">Email Address:*</label>
                                         <input type="text" name="email" id="email" class="form-control" value="<?php if(isset($cs_email)){echo $cs_email;}?>" placeholder="Email Address">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="website">Website:</label>
                                         <input type="text" name="website" id="website" class="form-control" value="<?php if(isset($cs_website)){echo $cs_website;}?>" placeholder="Website Url">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="comment">Comment:*</label>
                                         <textarea id="comment" name="comment" cols="30" rows="10" placeholder="Your Comment Should be Here" class="form-control"><?php if(isset($cs_comment)){echo $cs_comment;}?></textarea>
                                     </div>
-                                    
+
                                     <input type="submit" name="submit" class="btn btn-primary" value="Submit Comment">
                                     <?php
                                     if(isset($error_msg)){
@@ -211,9 +210,9 @@ if(isset($_GET['post_id'])){
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4">
-                    <?php require_once('inc/sidebar.php');?>              
+                    <?php require_once('inc/sidebar.php');?>
                 </div>
             </div>
         </div>
