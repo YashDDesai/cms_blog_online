@@ -1,7 +1,8 @@
 <?php require_once('inc/top.php');?>
   </head>
   <body>
-<?php require_once('inc/header.php');?>
+<?php require_once('inc/header.php');
+    require_once('inc/setting.php');?>
       
    
 <?php
