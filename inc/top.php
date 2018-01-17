@@ -11,7 +11,7 @@ require_once('setting.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title><?php echo $blog_title; ?></title>
+    <title><?php echo $blog_title." "; ?>Blog</title>
     <!--<title>YASH Blog | Learn and Share</title>-->
 
     <!-- Bootstrap -->

@@ -12,7 +12,7 @@ require_once("../inc/setting.php");
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.php"><?php echo $blog_title; ?></a>
+              <a class="navbar-brand" href="index.php"><?php echo $blog_title." "; ?>Blog</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

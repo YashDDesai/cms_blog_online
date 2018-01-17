@@ -12,7 +12,7 @@
 
          <title>Settings</title>
 
-         <link rel="icon" type="image/png" href="../img/<?php echo $logo; ?>.png">
+         <link rel="icon" type="image/png" href="../img/<?php echo $logo; ?>">
          <link rel="stylesheet" href="css/font-awesome.css">
          <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
          <link rel="stylesheet" href="css/animated.css">
@@ -60,10 +60,24 @@
         $blog_banner = $banner;
         $banner_tmp = $banner;
     }
+    elseif(($_FILES['fav-img']['name'])==null)
+    {
+        $blog_logo = $logo;
+        $logo_tmp = $logo;
+        $blog_banner = $_FILES['banner-img']['name'];
+        $banner_tmp = $_FILES['banner-img']['tmp_name'];
+    }
+    elseif(($_FILES['banner-img']['name'])==null)
+    {
+        $blog_logo = $_FILES['fav-img']['name'];
+        $logo_tmp = $_FILES['fav-img']['name'];
+        $blog_banner = $banner;
+        $banner_tmp = $banner;
+    }
     else
     {
         $blog_logo = $_FILES['fav-img']['name'];
-        $logo_tmp = $_FILES['fav-img']['tmp_name'];
+        $logo_tmp = $_FILES['fav-img']['name'];
         $blog_banner = $_FILES['banner-img']['name'];
         $banner_tmp = $_FILES['banner-img']['tmp_name'];
     }
