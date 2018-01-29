@@ -56,7 +56,7 @@ $has_admin = $init_row['role'];
         <div class="container">
             <div id="details" class="animated fadeInLeft">
                 <h1><?php echo $blog_title." "; ?><span>Blog</span></h1>
-                <p><?php echo $blog_tagline; ?></p>
+                <p style="color:black;"><?php echo $blog_tagline; ?></p>
             </div>
         </div>
         <img src="img/<?php echo $banner?>" alt="Top Image">
