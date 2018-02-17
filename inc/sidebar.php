@@ -8,11 +8,11 @@
                             </div><!-- /input-group -->
                         </form>
                     </div><!--widgets close-->
-                    
+
                     <div class="widgets">
                         <div class="popular">
                             <h4>Popular Posts</h4>
-                            <?php 
+                            <?php
                             $p_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY views DESC LIMIT 5";
                             $p_run = mysqli_query($con,$p_query);
                             if(mysqli_num_rows($p_run) > 0){
@@ -44,14 +44,14 @@
                                 echo "<h3>No Post Available</h3>";
                             }
                             ?>
-                            
+
                         </div>
                     </div><!--widgets close-->
-                    
+
                     <div class="widgets">
                         <div class="popular">
                             <h4>Recent Posts</h4>
-                            <?php 
+                            <?php
                             $p_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 5";
                             $p_run = mysqli_query($con,$p_query);
                             if(mysqli_num_rows($p_run) > 0){
@@ -64,7 +64,7 @@
                                     $p_title = $p_row['title'];
                                     $p_image = $p_row['image'];
                                     $p_viewsR = $p_row['views'];
-                                    
+
                             ?>
                             <hr>
                             <div class="row">
@@ -85,10 +85,10 @@
                                 echo "<h3>No Post Available</h3>";
                             }
                             ?>
-                            
+
                         </div>
                     </div><!--widgets close-->
-                    
+
                     <div class="widgets">
                         <div class="popular">
                             <h4>Categories</h4>
@@ -105,11 +105,11 @@
                                             $c_id = $c_row['id'];
                                             $c_category = $c_row['category'];
                                             $count = $count + 1;
-                                            
+
                                             if(($count % 2) == 1){
                                                 echo "<li><a href='index.php?cat=".$c_id."'>".(ucfirst($c_category))."</a></li>";
                                             }
-                                            
+
                                         }
                                     }
                                     else{
@@ -129,11 +129,11 @@
                                             $c_id = $c_row['id'];
                                             $c_category = $c_row['category'];
                                             $count = $count + 1;
-                                            
+
                                             if(($count % 2) == 0){
                                                 echo "<li><a href='index.php?cat=".$c_id."'>".(ucfirst($c_category))."</a></li>";
                                             }
-                                            
+
                                         }
                                     }
                                     else{
@@ -145,17 +145,17 @@
                         </div>
                         </div>
                     </div><!--widgets close-->
-                    
+
                     <div class="widgets">
                         <div class="categories">
                             <h4>Social Icons</h4>
                             <hr>
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <a href="http://www.facebook.com"><img src="img/facebook.png" alt="Facebook"></a>
+                                    <a href="https://www.facebook.com/NCSCBharuch/"><img src="img/facebook.png" alt="Facebook"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="http://www.twitter.com"><img src="img/twitter.png" alt="Twitter"></a>
+                                    <a href="https://twitter.com/narmada_college"><img src="img/twitter.png" alt="Twitter"></a>
                                 </div>
                                 <div class="col-xs-4">
                                     <a href="http://www.google.com"><img src="img/googleplus.png" alt="Google Plus"></a>
@@ -174,4 +174,4 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!--widgets close-->      
+                    </div><!--widgets close-->

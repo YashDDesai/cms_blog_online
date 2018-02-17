@@ -19,6 +19,7 @@ require_once("../inc/setting.php");
               <ul class="nav navbar-nav navbar-right">
                <li><a href="">Welcome: <i class="fa fa-user"></i> <?php echo $session_username2;?></a></li>
                <li><a href="../"><i class ="fa fa-eye"></i> View Blog</a></li>
+               <li><a href="ch_settings.php"><i class ="fa fa-cog"></i> Blog settings</a></li>
                <!--<li><a href="chat.php"><i class ="fa fa-commenting-o"></i> Chat</a></li>-->
                 <li><a href="add-post.php"><i class="fa fa-plus-square"></i> Add Post</a></li>
                 <?php

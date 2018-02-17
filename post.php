@@ -5,7 +5,7 @@
     require_once('inc/setting.php');?>
 
 <?php
-if(isset($_GET['post_id'])){
+    if(isset($_GET['post_id'])){
     $post_id = $_GET['post_id'];
 
     $views_query = "UPDATE `posts` SET `views` = views + 1 WHERE `posts`.`id` = $post_id";

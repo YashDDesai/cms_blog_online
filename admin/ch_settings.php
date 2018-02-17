@@ -1,7 +1,10 @@
 <?php
+    require_once('inc/top.php');
     require_once('../inc/setting.php');
-
- ?>
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php');
+    }
+?>
 
  <!DOCTYPE html>
  <html>
@@ -20,6 +23,7 @@
          <link rel="stylesheet" href="css/style.css">
      </head>
      <body>
+         <?php require_once('inc/header.php'); ?>
          <div class="container text-center">
              <form class="" action="" method="post" enctype="multipart/form-data">
 
