@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('inc/top.php');
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
@@ -33,10 +33,10 @@ $session_author_image = $_SESSION['author_image'];
                         $status = $_POST['status'];
                         $image = $_FILES['image']['name'];
                         $tmp_name = $_FILES['image']['tmp_name'];
-                        
+
                         if(empty($title) or empty($post_data) or empty($tags) or empty($image)){
                             $error = "All (*) Feilds Are Required";
-                            
+
                         }
                         else{
                             $insert_query = "INSERT INTO posts (date,title, author,author_image,image,categories,tags,post_data,views,status) VALUES ('$date','$title','$session_username','$session_author_image','$image','$categories','$tags','$post_data','0','$status')";
@@ -73,15 +73,15 @@ $session_author_image = $_SESSION['author_image'];
                                     ?>
                                     <input type="text" name="title" placeholder="Type Post Title Here" value="<?php if(isset($title)){echo $title;}?>" class="form-control">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <a href="media.php" class="btn btn-primary">Add Media</a>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <textarea name="post-data" id="textarea" rows="10" class="form-control"><?php if(isset($post_data)){echo $post_data;}?></textarea>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -100,7 +100,7 @@ $session_author_image = $_SESSION['author_image'];
                                                     while($cat_row = mysqli_fetch_array($cat_run)){
                                                         $cat_name = $cat_row['category'];
                                                         echo "<option value='".$cat_name."' ".((isset($categories) and $categories == $cat_name)?"selected":"").">".ucfirst($cat_name)."</option>";
-                                                        
+
                                                     }
                                                 }
                                                 else{
@@ -111,7 +111,7 @@ $session_author_image = $_SESSION['author_image'];
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -136,12 +136,11 @@ $session_author_image = $_SESSION['author_image'];
                 </div>
             </div>
         </div>
-        
+
         <?PHP
         //require_once('../index.php');
         if(isset($_POST['submit']))
         {
-
             $title_head="YASH DESAI Blog";
         	$msg=$_POST['title'];
         	$url="http://yashdesai.ddns.net/b";
