@@ -2,6 +2,7 @@
 //ob_start();
 session_start();
 require_once('../inc/db.php');
+require_once('../inc/setting.php');
 
 if(isset($_SESSION['username'])){
     header('Location: index.php');
@@ -76,7 +77,7 @@ if(isset($_POST['submit'])){
     <div class="container">
 
       <form class="form-signin animated shake" action="" method="post">
-        <h2 class="form-signin-heading">YASH Blog Login</h2>
+        <h2 class="form-signin-heading"><?php echo $blog_title; ?> Login</h2>
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus><br>
         <label for="inputPassword" class="sr-only">Password</label>

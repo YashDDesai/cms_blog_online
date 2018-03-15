@@ -37,11 +37,11 @@
     <div class="jumbotron">
         <div class="container">
             <div id="details" class="animated fadeInLeft">
-                <h1>YASH DESAI <span>Blog</span></h1>
-                <p>Learn and Share</p>
+                <h1><?php echo $blog_title ?> <span>Blog</span></h1>
+                <p style="color:black;"><?php echo $blog_tagline ?></p>
             </div>
         </div>
-        <img src="img/top-image.jpg" alt="Top Image">
+        <img src="img/<?php echo $banner?>" alt="Top Image">
     </div>
 
     <section>

@@ -166,7 +166,7 @@ $has_admin = $init_row['role'];
                                 <p>Written by: <span><?php echo ucfirst($author);?></span></p>
                             </div>
                             <div class="col-md-2 profile-picture">
-                                <img src="img/<?php echo $author_image;?>" alt="Profile Picture" class="img-circle">
+                                <img src="admin/img/<?php echo $author_image;?>" alt="Profile Picture" class="img-circle">
 
                             </div>
                         </div>
