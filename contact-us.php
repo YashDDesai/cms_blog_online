@@ -2,12 +2,43 @@
   </head>
   <body>
 <?php require_once('inc/header.php');?>
-    
+
+<?php $text_c = $_SESSION["text"]; ?>
+
+
+<?php 
+$cap_err = "";
+    if(isset($_POST['submit']))
+    {
+        $n =  mysqli_real_escape_string($con,$_POST['full-name']);
+        $e =  mysqli_real_escape_string($con,$_POST['email']);
+        $w =  mysqli_real_escape_string($con,$_POST['website']);
+        $m =  mysqli_real_escape_string($con,$_POST['message']);
+        $c = $_POST['captcha'];
+        
+
+
+        if($c != $_SESSION['text']) $cap_err ='Enter Correct captcha';
+
+        else{ 
+            $insert = "INSERT INTO `contact`(`name`, `email`, `website`, `message`) VALUES ('$n','$e','$w','$m')";
+            //$insert = "INSERT INTO `contact` (`name`,`email`,`website`,`message`) values('$n','$e','$w','$m')";
+            if(mysqli_query($con, $insert))
+            {
+                echo '<script>alert("We will reach you soon")</script>';
+
+
+            }
+            else echo '<script>alert("Something went wrong")</script>';
+        }
+    }
+
+?>    
     <div class="jumbotron">
         <div class="container">
             <div id="details" class="animated fadeInLeft">
                 <h1>Contact <span>Us</span></h1>
-                <p>We are available 24x7. So Feel Free to Contact Us.</p>
+                <p>Feel Free to Contact Us.</p>
             </div>
         </div>
         <img src="img/top-image.jpg" alt="Top Image">
@@ -23,29 +54,32 @@
                         </div>
                         <div class="col-md-12 contact-form">
                            <h2>Contact Form</h2><hr>
-                            <form action="">
+                            <form method="post">
                                 <div class="form-group">
                                     <label for="full-name">Full Name*:</label>
-                                    <input type="text" id="full-name" class="form-control" placeholder="Full Name">
+                                    <input type="text" id="full-name" name="full-name" class="form-control" placeholder="Full Name" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="email">Email*:</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Email Address">
+                                    <input type="text" id="email" name="email" class="form-control" placeholder="Email Address" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="website">Website:</label>
-                                    <input type="text" id="website" class="form-control" placeholder="Website">
+                                    <input type="text" id="website" name="website" class="form-control" placeholder="Website" >
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="message">Messages:</label>
-                                    <textarea id="message" cols="30" rows="10" class="form-control" placeholder="Your Message Should be Here"></textarea>
+                                    <textarea id="message" cols="30" rows="10" name="message" required class="form-control" placeholder="Your Message Should be Here"></textarea>
                                 </div>
-                                
+                                <img src="inc/captcha.php">
+                                <input type="text" name="captcha"  placeholder="Case-Sensitive" value="" required>
                                 <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                                
                             </form>
+                            <label><?= $cap_err ?></label>
                         </div>
                     </div>
                 </div>
@@ -56,4 +90,5 @@
             </div>
         </div>
     </section>
+
 <?php require_once('inc/footer.php');?>

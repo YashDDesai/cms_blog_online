@@ -103,7 +103,7 @@ if(isset($_POST['checkboxes'])){
                     <?php require_once('inc/sidebar.php');?>
                 </div>
                 <div class="col-md-9">
-                    <h1><i class="fa fa-comments"></i> Comments <small>View All Comments</small></h1><hr>
+                    <h1><i class="fa fa-comments"></i> Messages <small>View All Messages</small></h1><hr>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-tachometer"></i> Dashboard</a></li>
                       <li class="active"><i class="fa fa-comments"></i> Comments</li>

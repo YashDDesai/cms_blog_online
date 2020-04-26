@@ -75,7 +75,7 @@ $session_author_image = $_SESSION['author_image'];
                                 </div>
 
                                 <div class="form-group">
-                                    <a href="media.php" class="btn btn-primary">Add Media</a>
+                                   <!-- <a href="media.php" class="btn btn-primary">Add Media</a>-->
                                 </div>
 
                                 <div class="form-group">
@@ -141,9 +141,9 @@ $session_author_image = $_SESSION['author_image'];
         //require_once('../index.php');
         if(isset($_POST['submit']))
         {
-            $title_head="YASH DESAI Blog";
+            $title_head="MCA Blog";
         	$msg=$_POST['title'];
-        	$url="http://yashdesai.ddns.net/b";
+        	$url="http://localhost:8000";
 
         	function sendMessage(){
 
@@ -152,9 +152,9 @@ $session_author_image = $_SESSION['author_image'];
         		$title=array("en"=>$title_head);
         		$content = array("en" => $msg);
 
-                $img="http://yashdesai.ddns.net/b/img/".$image;
+                $img="http://localhost:8000/img/".$image;
 
-        		$fields = array('app_id' => "66b6019b-a544-49ad-8b75-890ec70d6f80", 'included_segments' => array('All'), 'data'=> array("foo" => "bar"), 'url'=> $url, 'contents' => $content,'headings'=>$title,'chrome_web_image'=>$img,'big_picture'=>$img,'priority'=>10);
+        		$fields = array('app_id' => "cbaf5274-ae69-4db8-b3ab-f8c86358f1f5", 'included_segments' => array('All'), 'data'=> array("foo" => "bar"), 'url'=> $url, 'contents' => $content,'headings'=>$title,'chrome_web_image'=>$img,'big_picture'=>$img,'priority'=>10);
 
 
         		$fields = json_encode($fields);
@@ -164,7 +164,7 @@ $session_author_image = $_SESSION['author_image'];
         		$ch = curl_init();
         		curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
         		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
-        												   'Authorization: Basic ZGNjMjVkNzktYTE0MS00ODBkLWE5ZTctNWNjZTc4N2M5NDVi'));
+        												   'Authorization: Basic N2M3ZTkxNWItZWE1My00NTg5LWI5ZDktMDIwYzI3NGMxNWM0'));
         		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         		curl_setopt($ch, CURLOPT_HEADER, FALSE);
         		curl_setopt($ch, CURLOPT_POST, TRUE);

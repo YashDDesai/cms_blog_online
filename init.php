@@ -74,20 +74,29 @@ if((isset($_POST['start'])))
     $banner = $_FILES['banner-img']['name'];
     $banner_tmp = $_FILES['banner-img']['tmp_name'];
 
+    $date =  time();
+
+
     $salt_query = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
     $salt_run = mysqli_query($con, $salt_query);
     $salt_row = mysqli_fetch_array($salt_run);
     $salt = $salt_row['salt'];
     $password = crypt($u_pass, $salt);
 
-    $start_query="INSERT INTO `users` (username,password,role) VALUES ('$u_admin','$password','admin')";
+    $start_query="INSERT INTO `users` (username,`date`,password,role) VALUES ('$u_admin','$date','$password','admin')";
     $setting_query="INSERT INTO `settings` (id,blog_title,company,tagline,logo,banner) VALUES ($id,'$blog_title','$blog_company','$blog_tag','$logo','$banner') ON DUPLICATE KEY UPDATE blog_title='$blog_title', company='$blog_company',tagline='$blog_tag',logo='$logo',banner='$banner'";
     if(mysqli_query($con,$start_query)&&mysqli_query($con,$setting_query))
     {
         $msg = "Admin Account Has Been Created.";
+        echo $msg;
         move_uploaded_file($logo_tmp, "img/$logo");
         move_uploaded_file($banner_tmp, "img/$banner");
         header("location:index.php");
+    }
+    else {
+        echo "error>> ";
+        //echo $blog_title;
+        echo $setting_query;
     }
 }
  ?>

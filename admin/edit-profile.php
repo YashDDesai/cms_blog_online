@@ -112,7 +112,7 @@ else{
                                
                                <div class="form-group">
                                    <label for="Password">Password:*</label>
-                                   <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                   <input type="password" id="password" name="password" class="form-control" required placeholder="Password">
                                </div>
                                
                                <div class="form-group">

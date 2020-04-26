@@ -28,7 +28,7 @@
                             ?>
                             <hr>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-3">
                                     <a href="post.php?post_id=<?php echo $p_id;?>"><img src="img/<?php echo $p_image;?>" alt="Image 1"></a>
                                 </div>
                                 <div class="col-xs-8 details">

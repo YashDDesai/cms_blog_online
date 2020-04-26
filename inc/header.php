@@ -14,9 +14,10 @@ require_once('setting.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">
-              <div class="col-xs-3"><img src="img/<?php echo $logo; ?>" alt="Logo" width="30px"></div>
-              <div class="col-xs-9"><?php echo " ".$blog_company; ?></div>
+          <a class="navbar-brand"  href="index.php">
+              <div class="col-md-1"><img src="img/<?php echo $logo; ?>" alt="Logo" width="30px"></div>
+              <div class="col-md-8"><?php echo " ".$blog_company; ?></div>
+
           </a>
         </div>
 

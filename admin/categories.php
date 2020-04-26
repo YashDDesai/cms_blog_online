@@ -102,7 +102,7 @@ if(isset($_POST['update'])){
                                         echo "<span class='pull-right' style='color:red;'>$error</span>";
                                     }
                                     ?>
-                                    <input type="text" placeholder="Category Name" class="form-control" name="cat-name">
+                                    <input type="text" placeholder="Category Name" class="form-control" name="cat-name" autofocus>
                                 </div>
                                 <input type="submit" value="Add Category" name="submit" class="btn btn-primary">
                             </form>
@@ -139,7 +139,7 @@ if(isset($_POST['update'])){
                         </div>
                         <div class="col-md-6"><br>
                            <?php
-                            $get_query = "SELECT * FROM categories ORDER BY id DESC";
+                            $get_query = "SELECT * FROM categories ORDER BY id";
                             $get_run = mysqli_query($con, $get_query);
                             if(mysqli_num_rows($get_run) > 0){
                                 

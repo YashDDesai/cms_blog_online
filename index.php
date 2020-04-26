@@ -59,7 +59,7 @@ $has_admin = $init_row['role'];
                 <p style="color:black;"><?php echo $blog_tagline; ?></p>
             </div>
         </div>
-        <img src="img/<?php echo $banner?>" alt="Top Image">
+        <img src="img/<?php echo $banner?>" height="250px" alt="Top Image">
     </div>
 
     <section>
@@ -103,7 +103,7 @@ $has_admin = $init_row['role'];
                                   echo "<div class='item'>";
                               }
                           ?>
-                          <a href="post.php?post_id=<?php echo $slider_id;?>"><img src="img/<?php echo $slider_image;?>"></a>
+                          <a href="post.php?post_id=<?php echo $slider_id;?>"><img src="img/<?php echo $slider_image;?>" width="100%"></a>
                           <div class="carousel-caption">
                               <h2><?php echo $slider_title;?></h2>
                           </div>

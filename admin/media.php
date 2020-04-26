@@ -45,7 +45,7 @@ if(!isset($_SESSION['username'])){
                                 <input type="file" name="media[]" required multiple>
                             </div>
                             <div class="col-sm-4 col-xs-4">
-                                <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Add Media">
+                                <!--<input type="submit" name="submit" class="btn btn-primary btn-sm" value="Add Media">-->
                             </div>
                         </div>
                     </form><hr>
